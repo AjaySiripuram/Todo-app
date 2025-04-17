@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>To-Do List</h1>
+    
+    <!-- Add Task Form -->
+    <form action="/add" method="POST">
+        <input type="text" name="task_name" placeholder="Enter a new task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    
+    <!-- Task List -->
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task[1] }}  <!-- Display task name -->
+            {% if task[2] == 'pending' %}
+                <span class="pending"> - Pending</span>
+            {% elif task[2] == 'done' %}
+                <span class="done"> - Done</span>
+            {% endif %}
+            <a href="/delete/{{ task[0] }}">Delete</a>  <!-- Delete link -->
+        </li>
+        {% endfor %}
+    </ul>
+    <style>
+        .pending {
+            color: orange;
+        }
+        .done {
+            color: green;
+            text-decoration: line-through;
+        }
+    </style>
+    
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
