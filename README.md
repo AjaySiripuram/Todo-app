@@ -20,3 +20,29 @@ This is a simple web-based To-Do List application built using:
 - Database: MySQL
 - IDEs: VS Code (for UI), MySQL Workbench
 
+## Setup the virtual environment
+- python -m venv venv
+- source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+
+## Install dependencies
+- pip insiall -r requirements.txt
+
+## Setup MySQL database
+CREATE DATABASE todo_db;
+
+USE todo_db;
+
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(255) NOT NULL,
+    task_status BOOLEAN DEFAULT FALSE
+);
+
+## Run the Flask app
+- python app.py
+
+## Open the browser
+- http://127.0.0.1:5000/
+
+
+
