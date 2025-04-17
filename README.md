@@ -44,5 +44,7 @@ CREATE TABLE tasks (
 ## Open the browser
 - http://127.0.0.1:5000/
 
+![image](https://github.com/user-attachments/assets/81e591fd-eaa2-464c-8f27-24ed8540129b)
+
 
 
